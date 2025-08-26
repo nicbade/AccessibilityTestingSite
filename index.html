@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Accessible Design Patterns Learning</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="container-fluid" role="navigation" aria-label="Main Navigation">
+        <ul>
+            <li><strong>Accessible Patterns</strong></li>
+        </ul>
+        <ul>
+            <li><a href="#patterns">Patterns</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <!-- <li><a href="#subscribe">Subscribe</a></li> -->
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container" role="main">
+        <div class="grid">
+            <section>
+                <div>
+                    <h1>Welcome to Accessible Design Patterns</h1>
+                    <h2>Learn ARIA patterns with keyboard and screen readers</h2>
+                </div>
+                <p>
+                    This site helps you practice <strong>WAI-ARIA design patterns</strong>
+                    such as accordions, tabs, menus, modals, and more—all optimized for
+                    <kbd>keyboard-only</kbd> navigation and screen reader users.
+                </p>
+
+                <!-- Example pattern placeholder -->
+                <div id="patterns">
+                    <a href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank">
+                        Learn more about ARIA Patterns
+                    </a>
+                </div>
+
+                <h2>Patterns</h2>
+
+                <!-- Accordion Example -->
+                <div class="accordion pattern">
+                    <h3>Accordion Pattern</h3>
+                    <h4>
+                        <button aria-expanded="false" aria-controls="sect1" id="accordion1">
+                            What is an accordion?
+                        </button>
+                    </h4>
+                    <div id="sect1" hidden>
+                        <p>
+                            An accordion is a vertically stacked set of interactive headings that each contain a title,
+                            content snippet, or thumbnail representing a section of content.
+                        </p>
+                    </div>
+
+                    <h4 class="a11yFeatures">Accordion Accessibility Features</h4>
+                    <ul>
+                        <li>
+                            <kbd>Tab</kbd> / <kbd>Shift+Tab</kbd>: Move focus between accordion headers.
+                        </li>
+                        <li>
+                            <kbd>Enter</kbd> or <kbd>Space</kbd>: Toggle (expand/collapse) the focused accordion panel.
+                        </li>
+                        <li>
+                            Focus should stay on the triggering elment tht expands/collapses the content, state of the
+                            triggering element should be announced to screen reader users.
+                        </li>
+                        <li>
+                            Accordion content that is visually hidden should be properly hidden from screen reader users.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Breadcrumbs -->
+
+                <div class="breadcrumb pattern">
+                    <nav aria-label="Breadcrumb">
+                        <h3>Breadcrumb Pattern</h3>
+
+                        <ol class="breadcrumb">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/patterns">Patterns</a></li>
+                            <li>Breadcrumbs</li>
+                        </ol>
+                    </nav>
+
+                    <h4 class="a11yFeatures">Breadcrumb Accessibility Features</h4>
+                    <ul>
+                        <li>Navigation element with the aria-label="Breadcrumb" announces to screen readers that this
+                            navigation is
+                            breadcrumbs.</li>
+                        <li>ol list → communicates the order/hierarchy.</li>
+                        <li>Last page is unlinked to indicate it is the current page</li>
+                        <li>Keyboard support → focus indicators and hover states are visible.</li>
+                    </ul>
+
+
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- Subscribe Section
+    <section id="subscribe" aria-label="Subscribe example">
+        <div class="container">
+            <article>
+                <hgroup>
+                    <h2>Stay Updated</h2>
+                    <h3>Get accessibility tips and tutorials</h3>
+                </hgroup>
+                <form class="grid">
+                    <input type="text" id="firstname" name="firstname" placeholder="First Name" aria-label="First Name"
+                        required />
+                    <input type="email" id="email" name="email" placeholder="Email Address" aria-label="Email Address"
+                        required />
+                    <button type="submit" onclick="event.preventDefault()">Subscribe</button>
+                </form>
+            </article>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="container" role="contentinfo">
+        <small>
+            <a href="#resources">Resources</a> •
+            <a href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank">WAI-ARIA Patterns</a>
+        </small>
+    </footer>
+
+
+</body>
+
+</html>
