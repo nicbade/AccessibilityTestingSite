@@ -14,7 +14,7 @@
     <!-- Navigation -->
     <nav class="container-fluid" role="navigation" aria-label="Main Navigation">
         <ul>
-            <li class="whiteFont"><strong>Accessible Patterns</strong></li>
+            <li id="siteNavHeading"><strong>Accessible Patterns</strong></li>
         </ul>
         <ul>
             <li><a href="#patterns">Patterns</a></li>
@@ -48,23 +48,23 @@
 
                 <!-- Pattern Component -->
                 <!-- <div class="pattern">
-  <h3>Pattern Name</h3>
+                    <h3>Pattern Name</h3> -->
 
-  <!-- Pattern Example -->
+                <!-- Pattern Example -->
                 <!-- <div class="pattern-example"> -->
                 <!-- Replace this section with your actual component markup -->
-                <!-- <p>[Interactive Example Here]</p> -->
-                <!-- </div> -->
+                <!-- <p>[Interactive Example Here]</p>
+                    </div> -->
 
                 <!-- Accessibility Features -->
-                <!-- <h4>Accessibility Features</h4> -->
-                <!-- <ul>
-                    <li>Keyboard support (e.g., Tab, Enter, Space)</li>
-                    <li>ARIA roles and attributes for screen readers</li>
-                    <li>Visible focus indicator for keyboard navigation</li>
-                    <li>Semantic HTML structure for clarity</li>
-                </ul>
-        </div> -->
+                <!-- <h4>Accessibility Features</h4>
+                    <ul>
+                        <li>Keyboard support (e.g., Tab, Enter, Space)</li>
+                        <li>ARIA roles and attributes for screen readers</li>
+                        <li>Visible focus indicator for keyboard navigation</li>
+                        <li>Semantic HTML structure for clarity</li>
+                    </ul>
+                </div> -->
 
                 <!-- Accordion Example -->
                 <div class="pattern">
@@ -104,8 +104,8 @@
                 </div>
 
 
-                <!-- Breadcrumbs -->
 
+                <!-- Breadcrumbs -->
                 <div class="pattern">
                     <h3>Breadcrumb Pattern</h3>
 
@@ -113,9 +113,8 @@
                     <nav aria-label="Breadcrumb">
                         <ol class="breadcrumb">
                             <li><a href="/">Home</a> <span class="separator" aria-hidden="true">/</span></li>
-                            <li><a href="/patterns">Patterns</a> <span class="separator" aria-hidden="true">/</span>
-                            </li>
-                            <li aria-current="page">Breadcrumbs</li>
+                            <li><a href="/patterns">Patterns</a> <span class="separator" aria-hidden="true">/</span></li>
+                            <li id="current">Breadcrumbs</li>
                         </ol>
                     </nav>
 
@@ -129,14 +128,12 @@
                             Ordered list communicates hierarchical order.
                         </li>
                         <li>
-                            The current page is marked with <code>aria-current="page"</code> if it is a link and remove
-                            that attribute if it is not a link.
+                            The current page is unlinked, but can be marked with <code>aria-current="page"</code> when it is a link.
                         </li>
                         <li>
                             Focus indicators and hover states are visible for keyboard users.
                         </li>
                     </ul>
-                </div>
 
 
             </section>
