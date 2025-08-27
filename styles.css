@@ -2,10 +2,11 @@
 /* Universal      */
 
 body {
-    color:#000;
+    color: #000;
 }
 
-h4, li{
+h4,
+li {
     color: #000;
 }
 
@@ -14,125 +15,187 @@ kbd {
     color: #fff;
 }
 
+#siteNavHeading {
+    color: #fff;
+}
+
 /* WCAG Compliant Focus Indicator */
-    :focus {
-      outline: 3px solid #1a73e8; /* High contrast blue */
-      outline-offset: 3px;
-      border-radius: 4px;
-    }
+:focus {
+    outline: 3px solid #1a73e8;
+    /* High contrast blue */
+    outline-offset: 3px;
+    border-radius: 4px;
+}
 
-    :focus-visible {
-      outline: 3px solid #ffbf47; /* Yellow focus ring for strong visibility */
-      outline-offset: 4px;
-      border-radius: 4px;
-    }
+:focus-visible {
+    outline: 3px solid #ffbf47;
+    /* Yellow focus ring for strong visibility */
+    outline-offset: 4px;
+    border-radius: 4px;
+}
 
-    /* Optional: Ensure interactive elements are styled consistently */
-    button, a, input, select, textarea {
-      transition: box-shadow 0.2s, outline-color 0.2s;
-    }
+/* Optional: Ensure interactive elements are styled consistently */
+button,
+a,
+input,
+select,
+textarea {
+    transition: box-shadow 0.2s, outline-color 0.2s;
+}
 
-    /* Advanced Halo effect for even stronger visibility */
-    :focus-visible {
-      outline: none;
-      box-shadow: 0 0 0 3px #fff, 0 0 0 6px #1a73e8; /* White inner ring + Blue outer */
-    }
+/* Advanced Halo effect for even stronger visibility */
+:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px #fff, 0 0 0 6px #1a73e8;
+    /* White inner ring + Blue outer */
+}
 
-    
-    /* Container for each pattern demo */
+
+/* Container for each pattern demo */
 .pattern {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  background-color: #f9fbfd;   /* subtle off-white/blue background */
-  border: 2px solid #e0e6ed;   /* light gray-blue border */
-  border-radius: 8px;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #f9fbfd;
+    /* subtle off-white/blue background */
+    border: 2px solid #e0e6ed;
+    /* light gray-blue border */
+    border-radius: 8px;
 }
 
 /* Heading inside pattern */
+/* Pattern headings – WCAG compliant */
 .pattern h3 {
-  margin-top: 0;
-  color: #1a73e8;              /* consistent accessible blue */
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  color: #0645AD; /* darker blue for 7:1 contrast */
+}
+
+.pattern h4 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: #0645AD; /* keep subheadings consistent */
 }
 
 /* Optional: add hover/focus emphasis */
 .pattern:focus-within,
 .pattern:hover {
-  border-color: #1a73e8;
-  box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.2);
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.2);
 }
 
 .a11yFeatures ul {
-  list-style: disc;         /* normal filled bullets */
-  padding-left: 1.5rem;     /* indentation for bullets */
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
+    list-style: disc;
+    /* normal filled bullets */
+    padding-left: 1.5rem;
+    /* indentation for bullets */
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 /* Accordion styling */
 .accordion button {
-  width: 100%;
-  text-align: left;
-  background: #f9f9f9;        /* light background */
-  color: #111;                /* dark text for 15:1 contrast ratio */
-  border: 1px solid #ddd;
-  padding: 0.75rem;
-  font-size: 1rem;
-  cursor: pointer;
+    width: 100%;
+    text-align: left;
+    background: #f9f9f9;
+    /* light background */
+    color: #111;
+    /* dark text for 15:1 contrast ratio */
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
-.accordion button:hover, #sect1 p {
-  background: #e6f0ff;        /* slightly darker on hover */
-  color: #000;                /* ensure strong contrast */
+.accordion button:hover,
+#sect1 p {
+    background: #e6f0ff;
+    /* slightly darker on hover */
+    color: #000;
+    /* ensure strong contrast */
 }
 
 .accordion button:focus-visible {
-  background: #eef6ff;        /* highlight on focus */
-  color: #000;                /* still dark text */
+    background: #eef6ff;
+    /* highlight on focus */
+    color: #000;
+    /* still dark text */
 }
 
 /* Expanded content styling */
 #sect1 {
-  background-color: #eef6ff;   /* light blue background */
-  border: 2px solid #1a73e8;   /* visible border */
-  border-radius: 4px;
+    background-color: #eef6ff;
+    /* light blue background */
+    border: 2px solid #1a73e8;
+    /* visible border */
+    border-radius: 4px;
 }
 
 /* Breadcrumbs styling */
-  .breadcrumb {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    margin: 2rem 0;
-    gap: 0.5rem;
-  }
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0;
+}
 
-  .breadcrumb li {
-    display: flex;
-    align-items: center;
-  }
+/* Space between items */
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  margin: 0 .5rem; /* remove extra spacing */
+}
 
-  .breadcrumb li + li::before {
-    content: "›";              /* separator */
-    margin: 0 0.5rem;
-    color: #020202;               /* subtle contrast */
-  }
+.breadcrumb .separator {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0.4rem;
+  color: #555;
+  font-size: 1em; /* same size as text */
+  line-height: 1; /* prevents extra vertical spacing */
+}
 
-  .breadcrumb a {
-    text-decoration: none;
-    color: #3281e8;            /* accessible link color */
-  }
 
-  .breadcrumb a:focus,
-  .breadcrumb a:hover {
-    text-decoration: underline;
-    outline: 3px solid #3281e8;
-    outline-offset: 3px;
-  }
 
-  .breadcrumb [aria-current="page"] {
+
+/* Breadcrumb links – WCAG compliant */
+.breadcrumb a {
+  text-decoration: none;
+  color: #0645AD; /* darker blue for 7:1 contrast on white */
+}
+
+.breadcrumb a:focus,
+.breadcrumb a:hover {
+  text-decoration: underline;
+  outline: 3px solid #0645AD;
+  outline-offset: 3px;
+}
+
+.breadcrumb #current {
     font-weight: bold;
-    color: #ffffff;               /* current page is not a link */
-  }
+    color: #000;
+    /* current page is not a link */
+}
 
-  </style>
+/* Accessible inline code styling */
+code {
+    background-color: #949292;
+    /* light gray */
+    color: #111;
+    /* near-black for high contrast */
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.95em;
+}
+
+@media (prefers-color-scheme: dark) {
+    code {
+        background-color: #222;
+        /* very dark gray */
+        color: #fff;
+        /* white text for contrast */
+    }
+}
+
+</style>
