@@ -62,6 +62,7 @@ textarea {
     border-radius: 8px;
 }
 
+
 /* Heading inside pattern */
 /* Pattern headings – WCAG compliant */
 .pattern h3 {
@@ -75,6 +76,7 @@ textarea {
   margin-bottom: 0.75rem;
   color: #0645AD; /* keep subheadings consistent */
 }
+
 
 /* Optional: add hover/focus emphasis */
 .pattern:focus-within,
@@ -130,7 +132,6 @@ textarea {
     border-radius: 4px;
 }
 
-/* Breadcrumbs styling */
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
@@ -170,6 +171,7 @@ textarea {
   outline: 3px solid #0645AD;
   outline-offset: 3px;
 }
+
 
 .breadcrumb #current {
     font-weight: bold;
