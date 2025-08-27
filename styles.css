@@ -102,7 +102,7 @@ textarea {
     /* light background */
     color: #111;
     /* dark text for 15:1 contrast ratio */
-    border: 1px solid #ddd;
+    border: 1px solid #858484;
     padding: 0.75rem;
     font-size: 1rem;
     cursor: pointer;
@@ -198,6 +198,44 @@ code {
         color: #fff;
         /* white text for contrast */
     }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  /* Patterns: reduce outer spacing */
+  .pattern {
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+
+  /* Headings: adjust font sizes */
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  h3, h4 {
+    font-size: 1rem;
+  }
+
+  /* Breadcrumbs: stack neatly if space runs out */
+  .breadcrumb {
+    flex-wrap: wrap; /* already there, but keep it explicit */
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb li {
+    margin-bottom: 0.25rem; /* give breathing room when wrapping */
+  }
+
+  /* Accordion buttons: bigger tap target */
+  .accordion button {
+    font-size: 1rem;
+    padding: 1rem;
+  }
 }
 
 </style>
