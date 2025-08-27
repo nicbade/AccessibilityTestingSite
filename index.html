@@ -14,7 +14,7 @@
     <!-- Navigation -->
     <nav class="container-fluid" role="navigation" aria-label="Main Navigation">
         <ul>
-            <li><strong>Accessible Patterns</strong></li>
+            <li class="whiteFont"><strong>Accessible Patterns</strong></li>
         </ul>
         <ul>
             <li><a href="#patterns">Patterns</a></li>
@@ -46,64 +46,98 @@
 
                 <h2>Patterns</h2>
 
+                <!-- Pattern Component -->
+                <!-- <div class="pattern">
+  <h3>Pattern Name</h3>
+
+  <!-- Pattern Example -->
+                <!-- <div class="pattern-example"> -->
+                <!-- Replace this section with your actual component markup -->
+                <!-- <p>[Interactive Example Here]</p> -->
+                <!-- </div> -->
+
+                <!-- Accessibility Features -->
+                <!-- <h4>Accessibility Features</h4> -->
+                <!-- <ul>
+                    <li>Keyboard support (e.g., Tab, Enter, Space)</li>
+                    <li>ARIA roles and attributes for screen readers</li>
+                    <li>Visible focus indicator for keyboard navigation</li>
+                    <li>Semantic HTML structure for clarity</li>
+                </ul>
+        </div> -->
+
                 <!-- Accordion Example -->
-                <div class="accordion pattern">
+                <div class="pattern">
                     <h3>Accordion Pattern</h3>
-                    <h4>
-                        <button aria-expanded="false" aria-controls="sect1" id="accordion1">
-                            What is an accordion?
-                        </button>
-                    </h4>
-                    <div id="sect1" hidden>
-                        <p>
-                            An accordion is a vertically stacked set of interactive headings that each contain a title,
-                            content snippet, or thumbnail representing a section of content.
-                        </p>
+
+                    <!-- Accordion Example -->
+                    <div class="accordion">
+                        <h4>
+                            <button aria-expanded="false" aria-controls="sect1" id="accordion1">
+                                What is an accordion?
+                            </button>
+                        </h4>
+                        <div id="sect1" role="region" aria-labelledby="accordion1" hidden>
+                            <p>
+                                An accordion is a vertically stacked set of interactive headings that
+                                each contain a title and toggle associated content.
+                            </p>
+                        </div>
                     </div>
 
-                    <h4 class="a11yFeatures">Accordion Accessibility Features</h4>
+                    <!-- Accessibility Features -->
+                    <h4>Accordion Accessibility Features</h4>
                     <ul>
                         <li>
                             <kbd>Tab</kbd> / <kbd>Shift+Tab</kbd>: Move focus between accordion headers.
                         </li>
                         <li>
-                            <kbd>Enter</kbd> or <kbd>Space</kbd>: Toggle (expand/collapse) the focused accordion panel.
+                            <kbd>Enter</kbd> or <kbd>Space</kbd>: Toggle the focused accordion panel.
                         </li>
                         <li>
-                            Focus should stay on the triggering elment tht expands/collapses the content, state of the
-                            triggering element should be announced to screen reader users.
+                            Focus remains on the trigger element; screen readers announce state changes.
                         </li>
                         <li>
-                            Accordion content that is visually hidden should be properly hidden from screen reader users.
+                            Hidden accordion content is also hidden from screen readers.
                         </li>
                     </ul>
                 </div>
+
 
                 <!-- Breadcrumbs -->
 
-                <div class="breadcrumb pattern">
-                    <nav aria-label="Breadcrumb">
-                        <h3>Breadcrumb Pattern</h3>
+                <div class="pattern">
+                    <h3>Breadcrumb Pattern</h3>
 
+                    <!-- Breadcrumb Example -->
+                    <nav aria-label="Breadcrumb">
                         <ol class="breadcrumb">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/patterns">Patterns</a></li>
-                            <li>Breadcrumbs</li>
+                            <li><a href="/">Home</a> <span class="separator" aria-hidden="true">/</span></li>
+                            <li><a href="/patterns">Patterns</a> <span class="separator" aria-hidden="true">/</span>
+                            </li>
+                            <li aria-current="page">Breadcrumbs</li>
                         </ol>
                     </nav>
 
-                    <h4 class="a11yFeatures">Breadcrumb Accessibility Features</h4>
+                    <!-- Accessibility Features -->
+                    <h4>Breadcrumb Accessibility Features</h4>
                     <ul>
-                        <li>Navigation element with the aria-label="Breadcrumb" announces to screen readers that this
-                            navigation is
-                            breadcrumbs.</li>
-                        <li>ol list → communicates the order/hierarchy.</li>
-                        <li>Last page is unlinked to indicate it is the current page</li>
-                        <li>Keyboard support → focus indicators and hover states are visible.</li>
+                        <li>
+                            <code>&lt;nav aria-label="Breadcrumb"&gt;</code> announces breadcrumb navigation.
+                        </li>
+                        <li>
+                            Ordered list communicates hierarchical order.
+                        </li>
+                        <li>
+                            The current page is marked with <code>aria-current="page"</code> if it is a link and remove
+                            that attribute if it is not a link.
+                        </li>
+                        <li>
+                            Focus indicators and hover states are visible for keyboard users.
+                        </li>
                     </ul>
-
-
                 </div>
+
 
             </section>
         </div>

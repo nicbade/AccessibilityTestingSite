@@ -14,6 +14,20 @@ kbd {
     color: #fff;
 }
 
+.whiteFont {
+    color: #fff;
+}
+
+/* Accessible inline code styling */
+code {
+  background-color: #8f8c8c; /* very light gray */
+  color: #111;              /* near-black for high contrast */
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95em;
+}
+
 /* WCAG Compliant Focus Indicator */
     :focus {
       outline: 3px solid #1a73e8; /* High contrast blue */
@@ -48,11 +62,19 @@ kbd {
   border-radius: 8px;
 }
 
-/* Heading inside pattern */
+/* Pattern headings  */
 .pattern h3 {
-  margin-top: 0;
-  color: #1a73e8;              /* consistent accessible blue */
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  color: #0645AD; /* darker blue for 7:1 contrast */
 }
+
+.pattern h4 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: #0645AD; /* keep subheadings consistent */
+}
+
 
 /* Optional: add hover/focus emphasis */
 .pattern:focus-within,
@@ -74,7 +96,7 @@ kbd {
   text-align: left;
   background: #f9f9f9;        /* light background */
   color: #111;                /* dark text for 15:1 contrast ratio */
-  border: 1px solid #ddd;
+  border: 1px solid #868585;
   padding: 0.75rem;
   font-size: 1rem;
   cursor: pointer;
@@ -97,42 +119,45 @@ kbd {
   border-radius: 4px;
 }
 
-/* Breadcrumbs styling */
-  .breadcrumb {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    margin: 2rem 0;
-    gap: 0.5rem;
-  }
+/* Breadcrumbs container */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 2.5rem 0;
+}
 
-  .breadcrumb li {
-    display: flex;
-    align-items: center;
-  }
+/* Space between items */
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem; /* consistent spacing after each item */
+}
 
-  .breadcrumb li + li::before {
-    content: "›";              /* separator */
-    margin: 0 0.5rem;
-    color: #020202;               /* subtle contrast */
-  }
+/* Separator styling */
+.breadcrumb .separator {
+  margin: 0 0.5rem;    /* equal space on both sides */
+  color: #555;         /* subtle gray for contrast */
+}
 
-  .breadcrumb a {
-    text-decoration: none;
-    color: #3281e8;            /* accessible link color */
-  }
+/* Breadcrumb links  */
+.breadcrumb a {
+  text-decoration: none;
+  color: #0645AD; /* darker blue for 7:1 contrast on white */
+}
 
-  .breadcrumb a:focus,
-  .breadcrumb a:hover {
-    text-decoration: underline;
-    outline: 3px solid #3281e8;
-    outline-offset: 3px;
-  }
+.breadcrumb a:focus,
+.breadcrumb a:hover {
+  text-decoration: underline;
+  outline: 3px solid #0645AD;
+  outline-offset: 3px;
+}
 
-  .breadcrumb [aria-current="page"] {
-    font-weight: bold;
-    color: #ffffff;               /* current page is not a link */
-  }
+.breadcrumb li + li::before {
+  margin: 0 0.5rem;
+  color: #555;              /* darker gray for contrast */
+}
+
 
   </style>
