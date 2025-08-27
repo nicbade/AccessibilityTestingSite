@@ -102,7 +102,7 @@ textarea {
     /* light background */
     color: #111;
     /* dark text for 15:1 contrast ratio */
-    border: 1px solid #858484;
+    border: 1px solid #848383;
     padding: 0.75rem;
     font-size: 1rem;
     cursor: pointer;
@@ -132,6 +132,9 @@ textarea {
     border-radius: 4px;
 }
 
+
+/* Breadcrumb  */
+
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
@@ -156,9 +159,6 @@ textarea {
   line-height: 1; /* prevents extra vertical spacing */
 }
 
-
-
-
 /* Breadcrumb links – WCAG compliant */
 .breadcrumb a {
   text-decoration: none;
@@ -172,12 +172,33 @@ textarea {
   outline-offset: 3px;
 }
 
-
 .breadcrumb #current {
     font-weight: bold;
     color: #000;
     /* current page is not a link */
 }
+
+/* Button  */
+
+/* Custom button fallback style */
+.custom-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #0645AD;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+}
+
+.custom-button:focus,
+.custom-button:hover {
+  background: #032d73;
+  outline: 3px solid #ffbf47; /* WCAG-compliant focus */
+  outline-offset: 2px;
+}
+
 
 /* Accessible inline code styling */
 code {

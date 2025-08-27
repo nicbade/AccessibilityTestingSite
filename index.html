@@ -112,7 +112,8 @@
                     <nav aria-label="Breadcrumb">
                         <ol class="breadcrumb">
                             <li><a href="/">Home</a> <span class="separator" aria-hidden="true">/</span></li>
-                            <li><a href="/patterns">Patterns</a> <span class="separator" aria-hidden="true">/</span></li>
+                            <li><a href="/patterns">Patterns</a> <span class="separator" aria-hidden="true">/</span>
+                            </li>
                             <li id="current">Breadcrumbs</li>
                         </ol>
                     </nav>
@@ -127,13 +128,37 @@
                             Ordered list communicates hierarchical order.
                         </li>
                         <li>
-                            The current page is unlinked, but can be marked with <code>aria-current="page"</code> when it is a link.
+                            The current page is unlinked, but can be marked with <code>aria-current="page"</code> when
+                            it is a link.
                         </li>
                         <li>
                             Focus indicators and hover states are visible for keyboard users.
                         </li>
                     </ul>
 
+                </div>
+
+                <div class="pattern">
+                        <h3>Button Pattern</h3>
+
+                        <!-- Example Buttons -->
+                        <div class="pattern-example">
+                            <button type="button" class="custom-button" id="customBtn">Click Me</button>
+
+                            <!-- Non-semantic fallback (if needed) -->
+
+                        </div>
+
+                        <!-- Accessibility Features -->
+                        <h4>Button Accessibility Features</h4>
+                        <ul>
+                            <li>Use the native <code>&lt;button&gt;</code> element when possible (inherits full
+                                accessibility support).</li>
+                            <li><kbd>Tab</kbd>: Moves focus to the button.</li>
+                            <li><kbd>Enter</kbd> or <kbd>Space</kbd>: Activates the button.</li>
+                            <li>Ensure visible focus indicators for keyboard users.</li>
+                        </ul>
+                    </div>
 
             </section>
         </div>
