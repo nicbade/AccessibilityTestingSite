@@ -199,6 +199,51 @@ textarea {
   outline-offset: 2px;
 }
 
+/* Carousel container */
+.carousel {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+/* Carousel slides */
+.carousel-slide {
+  display: none;
+  text-align: center;
+}
+
+.carousel-slide:not([hidden]) {
+  display: block;
+}
+
+/* Controls */
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.carousel-controls button {
+  background: #0645AD;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.carousel-controls button:hover,
+.carousel-controls button:focus {
+  background: #032d73;
+  outline: 3px solid #ffbf47;
+  outline-offset: 2px;
+}
+
 
 /* Accessible inline code styling */
 code {

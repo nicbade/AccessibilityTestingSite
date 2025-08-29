@@ -20,3 +20,50 @@ document.getElementById("customBtn").addEventListener("keydown", function (e) {
 document.getElementById("customBtn").addEventListener("click", function () {
     alert("Custom Button Activated!");
 });
+
+
+// Script for Carousel 
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".carousel-slide");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+  const pauseBtn = document.querySelector(".pause-btn");
+
+  let currentSlide = 0;
+  let autoPlay = true;
+  let interval = setInterval(showNextSlide, 5000);
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.hidden = i !== index;
+    });
+  }
+
+  function showNextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function showPrevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  prevBtn.addEventListener("click", showPrevSlide);
+  nextBtn.addEventListener("click", showNextSlide);
+
+  pauseBtn.addEventListener("click", () => {
+    autoPlay = !autoPlay;
+    pauseBtn.setAttribute("aria-pressed", String(!autoPlay));
+    pauseBtn.textContent = autoPlay ? "Pause" : "Play";
+
+    if (autoPlay) {
+      interval = setInterval(showNextSlide, 5000);
+    } else {
+      clearInterval(interval);
+    }
+  });
+
+  // Start with first slide visible
+  showSlide(currentSlide);
+});

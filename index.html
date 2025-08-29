@@ -139,49 +139,92 @@
                 </div>
 
                 <div class="pattern">
-                        <h3>Button Pattern</h3>
+                    <h3>Button Pattern</h3>
 
-                        <!-- Example Buttons -->
-                        <div class="pattern-example">
-                            <button type="button" class="custom-button" id="customBtn">Click Me</button>
+                    <!-- Example Buttons -->
+                    <div class="pattern-example">
+                        <button type="button" class="custom-button" id="customBtn">Click Me</button>
 
-                            <!-- Non-semantic fallback (if needed) -->
+                        <!-- Non-semantic fallback (if needed) -->
 
-                        </div>
-
-                        <!-- Accessibility Features -->
-                        <h4>Button Accessibility Features</h4>
-                        <ul>
-                            <li>Use the native <code>&lt;button&gt;</code> element when possible (inherits full
-                                accessibility support).</li>
-                            <li><kbd>Tab</kbd>: Moves focus to the button.</li>
-                            <li><kbd>Enter</kbd> or <kbd>Space</kbd>: Activates the button.</li>
-                            <li>Ensure visible focus indicators for keyboard users.</li>
-                        </ul>
                     </div>
 
+                    <!-- Accessibility Features -->
+                    <h4>Button Accessibility Features</h4>
+                    <ul>
+                        <li>Use the native <code>&lt;button&gt;</code> element when possible (inherits full
+                            accessibility support).</li>
+                        <li><kbd>Tab</kbd>: Moves focus to the button.</li>
+                        <li><kbd>Enter</kbd> or <kbd>Space</kbd>: Activates the button.</li>
+                        <li>Ensure visible focus indicators for keyboard users.</li>
+                    </ul>
+                </div>
+
+                <!-- Carousel  -->
+                <div class="pattern">
+                    <h3>Carousel Pattern</h3>
+
+                    <!-- Carousel Example -->
+                    <div class="pattern-example">
+                        <section class="carousel" aria-label="Image Carousel">
+                            <ul class="carousel-track">
+                                <li class="carousel-slide">
+                                    <img src="Images/Clo-Chair.JPG"
+                                        alt="Chloe the golden retriever sitting in her patio chair">
+                                </li>
+                                <li class="carousel-slide" hidden>
+                                    <img src="Images/Clo-Doggles.JPG"
+                                        alt="Chloe the golden retriever wearing doggles at puppy class">
+                                </li>
+                                <li class="carousel-slide" hidden>
+                                    <img src="Images/Clo-Puppy.JPG"
+                                        alt="Chloe the golden retriever as an 8 week old puppy sitting pretty">
+                                </li>
+                            </ul>
+
+                            <!-- Carousel Controls -->
+                            <div class="carousel-controls">
+                                <button class="prev-btn" aria-label="Previous Slide">◀</button>
+                                <button class="next-btn" aria-label="Next Slide">▶</button>
+                                <button class="pause-btn">Pause</button>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Accessibility Features -->
+                    <h4>Carousel Accessibility Features</h4>
+                    <ul>
+                        <li>Slides are structured as a semantic <code>&lt;ul&gt;</code> with each slide in a
+                            <code>&lt;li&gt;</code>.</li>
+                        <li>Only the current slide is shown; inactive slides use the <code>hidden</code> attribute
+                            so they’re skipped by screen readers.</li>
+                        <li>Navigation controls (Prev, Next, Pause) are real <code>&lt;button&gt;</code> elements
+                            with clear <code>aria-label</code> text.</li>
+                        <li><kbd>Tab</kbd>: Moves focus between controls.</li>
+                        <li><kbd>Enter</kbd> or <kbd>Space</kbd>: Activates the focused control button.</li>
+                    </ul>
+                </div>
             </section>
         </div>
     </main>
-
-    <!-- Subscribe Section
-    <section id="subscribe" aria-label="Subscribe example">
-        <div class="container">
-            <article>
-                <hgroup>
-                    <h2>Stay Updated</h2>
-                    <h3>Get accessibility tips and tutorials</h3>
-                </hgroup>
-                <form class="grid">
-                    <input type="text" id="firstname" name="firstname" placeholder="First Name" aria-label="First Name"
-                        required />
-                    <input type="email" id="email" name="email" placeholder="Email Address" aria-label="Email Address"
-                        required />
-                    <button type="submit" onclick="event.preventDefault()">Subscribe</button>
-                </form>
-            </article>
-        </div>
-    </section> -->
+    <!-- Subscribe
+                                    Section <section id="subscribe" aria-label="Subscribe example">
+                                <div class="container">
+                                    <article>
+                                        <hgroup>
+                                            <h2>Stay Updated</h2>
+                                            <h3>Get accessibility tips and tutorials</h3>
+                                        </hgroup>
+                                        <form class="grid">
+                                            <input type="text" id="firstname" name="firstname" placeholder="First Name"
+                                                aria-label="First Name" required />
+                                            <input type="email" id="email" name="email" placeholder="Email Address"
+                                                aria-label="Email Address" required />
+                                            <button type="submit" onclick="event.preventDefault()">Subscribe</button>
+                                        </form>
+                                    </article>
+                                </div>
+            </section> -->
 
     <!-- Footer -->
     <footer class="container" role="contentinfo">
