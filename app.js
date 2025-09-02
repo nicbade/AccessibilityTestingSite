@@ -23,6 +23,7 @@ document.getElementById("customBtn").addEventListener("click", function () {
 
 
 // Script for Carousel 
+// Script for Carousel 
 document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".carousel-slide");
   const prevBtn = document.querySelector(".prev-btn");
@@ -30,8 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const pauseBtn = document.querySelector(".pause-btn");
 
   let currentSlide = 0;
-  let autoPlay = true;
-  let interval = setInterval(showNextSlide, 5000);
+  let isPlaying = false;   // start paused
+  let interval = null;
 
   function showSlide(index) {
     slides.forEach((slide, i) => {
@@ -49,24 +50,46 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide(currentSlide);
   }
 
+  function stopAutoplay() {
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+    }
+  }
+
+  function startAutoplay() {
+    stopAutoplay(); // guard against multiple intervals
+    interval = setInterval(showNextSlide, 5000);
+  }
+
+  function updateToggleUI() {
+    // Button label reflects the ACTION available
+    // - When playing: show "Pause"
+    // - When paused:  show "Play"
+    pauseBtn.textContent = isPlaying ? "Pause" : "Play";
+    pauseBtn.setAttribute("aria-pressed", String(isPlaying));
+  }
+
   prevBtn.addEventListener("click", showPrevSlide);
   nextBtn.addEventListener("click", showNextSlide);
 
   pauseBtn.addEventListener("click", () => {
-    autoPlay = !autoPlay;
-    pauseBtn.setAttribute("aria-pressed", String(!autoPlay));
-    pauseBtn.textContent = autoPlay ? "Pause" : "Play";
-
-    if (autoPlay) {
-      interval = setInterval(showNextSlide, 5000);
+    isPlaying = !isPlaying;
+    if (isPlaying) {
+      startAutoplay();
     } else {
-      clearInterval(interval);
+      stopAutoplay();
     }
+    updateToggleUI();
   });
 
-  // Start with first slide visible
+  // Initial render: first slide visible, paused UI
   showSlide(currentSlide);
+  updateToggleUI();
 });
+
+
+
 
 // Script for Modal 
 // Simple modal
