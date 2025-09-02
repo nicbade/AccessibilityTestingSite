@@ -67,3 +67,46 @@ document.addEventListener("DOMContentLoaded", () => {
   // Start with first slide visible
   showSlide(currentSlide);
 });
+
+// Script for Modal 
+// Simple modal
+const openModalBtn = document.getElementById("openModalBtn");
+const closeModalBtn = document.getElementById("closeModalBtn");
+const modalBackdrop = document.getElementById("modalBackdrop");
+let lastFocused;
+
+function openModal() {
+  lastFocused = document.activeElement;
+  modalBackdrop.hidden = false;
+  closeModalBtn.focus();
+
+  // trap focus
+  document.addEventListener("keydown", trapFocus);
+}
+
+function closeModal() {
+  modalBackdrop.hidden = true;
+  document.removeEventListener("keydown", trapFocus);
+  if (lastFocused) lastFocused.focus();
+}
+
+function trapFocus(e) {
+  if (e.key === "Escape") {
+    closeModal();
+  }
+  if (e.key === "Tab") {
+    const focusable = modalBackdrop.querySelectorAll("button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])");
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+}
+
+openModalBtn.addEventListener("click", openModal);
+closeModalBtn.addEventListener("click", closeModal);

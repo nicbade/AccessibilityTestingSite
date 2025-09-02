@@ -244,17 +244,57 @@ textarea {
   outline-offset: 2px;
 }
 
+/* Modal styles */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fff;
+  color: #000;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+/* Unified code tokens */
+:root {
+  --code-bg: #949292;
+  --code-fg: #111111;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --code-bg: #222222;
+    --code-fg: #ffffff;
+  }
+}
+
 
 /* Accessible inline code styling */
+/* Single source of truth for all code samples site-wide */
 code {
-    background-color: #949292;
-    /* light gray */
-    color: #111;
-    /* near-black for high contrast */
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 0.95em;
+  background-color: var(--code-bg);
+  color: var(--code-fg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95em;
+}
+
+/* Optional: ensure no component overrides sneak in */
+.modal code,
+.carousel code,
+.pattern code {
+  background-color: var(--code-bg);
+  color: var(--code-fg);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -302,6 +342,54 @@ code {
     font-size: 1rem;
     padding: 1rem;
   }
+}
+
+
+/* --- Modal contrast tokens (WCAG AA 4.5:1 or better) --- */
+:root {
+  --modal-bg: #ffffff;     /* white */
+  --modal-fg: #111111;     /* near-black text (≈21:1 on white) */
+  --modal-heading: #0645AD;/* same site blue; ≈7:1 on white */
+  --modal-link: #0645AD;   /* link blue; ≈7:1 on white */
+  --modal-border: #2c2c2c; /* strong separation on white */
+  --modal-muted: #333333;  /* body/subtle text; ≈12:1 on white */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --modal-bg: #111111;     /* near-black */
+    --modal-fg: #ffffff;     /* white text (≈21:1 on #111) */
+    --modal-heading: #ffffff;/* heading stays highly legible */
+    --modal-link: #cfe3ff;   /* light blue; ≥4.5:1 on #111 */
+    --modal-border: #6b6b6b; /* ≥3:1 non-text contrast vs #111 */
+    --modal-muted: #e6e6e6;  /* subtle text but still ≥4.5:1 */
+  }
+}
+
+/* Apply inside modal (wins over generic .pattern heading styles) */
+.modal {
+  background: var(--modal-bg);
+  color: var(--modal-fg);
+  border: 2px solid var(--modal-border);
+}
+
+.pattern .modal h4 {
+  color: var(--modal-heading);
+  margin-top: 0;
+}
+
+.pattern .modal p {
+  color: var(--modal-fg);
+}
+
+.pattern .modal a {
+  color: var(--modal-link);
+  text-decoration: underline;
+}
+
+/* Keep the Close button using your Button Pattern */
+.modal .custom-button {
+  /* already good: #0645AD on white, and ≥3:1 vs dark bg */
 }
 
 </style>

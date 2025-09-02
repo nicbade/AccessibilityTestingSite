@@ -204,6 +204,35 @@
                         <li><kbd>Enter</kbd> or <kbd>Space</kbd>: Activates the focused control button.</li>
                     </ul>
                 </div>
+
+                <!-- Modal Dialog -->
+
+                <div class="pattern">
+                    <h3>Modal Dialog Pattern</h3>
+
+                    <!-- Trigger -->
+                    <!-- Trigger -->
+                    <button id="openModalBtn" class="custom-button">Open Modal</button>
+
+                    <!-- Modal -->
+                    <div class="modal-backdrop" id="modalBackdrop" hidden>
+                        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+                            <h4 id="modalTitle">Simple Modal</h4>
+                            <p>This is a simple accessible modal dialog with some text and a close button.</p>
+                            <button id="closeModalBtn" class="custom-button">Close</button>
+                        </div>
+                    </div>
+
+                    <h4>Modal Accessibility Features</h4>
+                    <ul>
+                        <li><kbd>Tab</kbd> and <kbd>Shift+Tab</kbd>: Cycle focus inside modal.</li>
+                        <li><kbd>Esc</kbd>: Closes modal.</li>
+                        <li><code>role="dialog"</code> and <code>aria-modal="true"</code> convey modal semantics.</li>
+                        <li>Focus is returned to trigger after closing</li>
+                    </ul>
+                </div>
+
+
             </section>
         </div>
     </main>
