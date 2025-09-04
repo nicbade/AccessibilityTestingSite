@@ -34,7 +34,7 @@
                 <p>
                     This site helps you practice <strong>WAI-ARIA design patterns</strong>
                     such as accordions, tabs, menus, modals, and more—all optimized for
-                    <kbd>keyboard-only</kbd> navigation and screen reader users.
+                    <kbd id="black-background">keyboard-only</kbd> navigation and screen reader users.
                 </p>
 
                 <!-- Example pattern placeholder -->
@@ -229,6 +229,41 @@
                         <li><kbd>Esc</kbd>: Closes modal.</li>
                         <li><code>role="dialog"</code> and <code>aria-modal="true"</code> convey modal semantics.</li>
                         <li>Focus is returned to trigger after closing</li>
+                    </ul>
+                </div>
+
+                <div class="pattern" id="pattern-link">
+                    <h3>Link Pattern</h3>
+                    <p class="summary">Clear, high-contrast links with default underlines and an external-link cue.</p>
+
+                    <section class="pattern-example">
+                        <p>
+                            Internal link (inline):
+                            <a class="link" href="#patterns">Go to Patterns</a>.
+                        </p>
+
+                        <p>
+                            External link (opens in a new tab):
+                            <a class="link link-external" href="https://www.w3.org/WAI/ARIA/apg/patterns/link/"
+                                target="_blank" rel="noopener noreferrer">
+                                WAI-ARIA APG: Links
+                                <span class="visually-hidden">(opens in a new tab)</span>
+                                <span class="ext-icon" aria-hidden="true">↗</span>
+                            </a>
+                        </p>
+
+                        <p>
+                            Visited link example (after you’ve clicked it):
+                            <a class="link" href="https://www.example.com/">Example.com</a>
+                        </p>
+                    </section>
+
+                    <h4>Link Accessibility Features</h4>
+                    <ul>
+                        <li>Uses native <code>&lt;a&gt;</code> (Tab to focus; Enter to activate).</li>
+                        <li>Underlines by default so color alone isn’t required (WCAG 1.4.1).</li>
+                        <li>External links use <code>target="_blank"</code> with <code>rel="noopener noreferrer"</code>
+                            and an audible “opens in a new tab”.</li>
                     </ul>
                 </div>
 

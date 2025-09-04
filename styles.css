@@ -1,12 +1,11 @@
-<style>
 /* Universal      */
-
 body {
     color: #000;
 }
 
 h4,
-li {
+li,
+p {
     color: #000;
 }
 
@@ -392,4 +391,38 @@ code {
   /* already good: #0645AD on white, and ≥3:1 vs dark bg */
 }
 
-</style>
+/* Utility: visually hide content but keep it for screen readers */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* Link component – matches site palette (#0645AD / #032d73) */
+.link {
+  color: #0645AD;            /* same blue as headings/buttons */
+  text-decoration: underline;/* default underline = passes 1.4.1 */
+}
+.link:hover,
+.link:focus {
+  color: #032d73;            /* darker on hover/focus */
+  text-decoration: underline;
+}
+.link:visited {
+  color: #5a3696;            /* distinct, readable visited state */
+}
+
+/* Stop generating the icon via ::after (so SRs won’t see pseudo text) */
+.link-external::after { content: none !important; }
+
+/* Visual icon that is aria-hidden (in markup) */
+.link-external .ext-icon {
+  margin-left: 0.25em;
+  font-size: 0.9em;     /* optional: makes the arrow a touch subtler */
+  line-height: 1;
+  vertical-align: text-top;
+}
+
+
