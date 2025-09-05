@@ -31,7 +31,7 @@
                     <h1>Welcome to Accessible Design Patterns</h1>
                     <h2>Learn ARIA patterns with keyboard and screen readers</h2>
                 </div>
-                <p>
+                <p id="whiteText">
                     This site helps you practice <strong>WAI-ARIA design patterns</strong>
                     such as accordions, tabs, menus, modals, and more—all optimized for
                     <kbd id="black-background">keyboard-only</kbd> navigation and screen reader users.
@@ -267,6 +267,100 @@
                     </ul>
                 </div>
 
+                <!-- Table Component -->
+
+                <div class="pattern" id="pattern-table">
+                    <h3>Table Pattern</h3>
+                    <p class="summary">Semantic table with caption, headers, row headers, and optional sortable columns.
+                    </p>
+
+                    <div class="pattern-example">
+                        <!-- Off-screen instructions for SR users -->
+                        <p id="dog-table-desc" class="visually-hidden">
+                            This table can be sorted by Name, Breed, or Age. Use Enter or Space on a column header to
+                            sort.
+                        </p>
+
+                        <div class="table-container">
+                            <table class="a11y-table" aria-describedby="dog-table-desc">
+                                <caption>Adoptable Dogs</caption>
+                                <thead>
+                                    <tr>
+                                        <!-- aria-sort belongs on the TH cells -->
+                                        <th scope="col" aria-sort="none">
+                                            <button type="button" class="sort" data-col="0">
+                                                <span class="sort-label">Name</span>
+                                                <span class="sort-icon" aria-hidden="true" data-icon></span>
+                                            </button>
+                                        </th>
+
+                                        <th scope="col" aria-sort="none">
+                                            <button type="button" class="sort" data-col="1">
+                                                <span class="sort-label">Breed</span>
+                                                <span class="sort-icon" aria-hidden="true" data-icon></span>
+                                            </button>
+                                        </th>
+
+                                        <th scope="col" aria-sort="none">
+                                            <button type="button" class="sort" data-col="2" data-type="number">
+                                                <span class="sort-label">Age</span>
+                                                <span class="sort-icon" aria-hidden="true" data-icon></span>
+                                            </button>
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Chloe</th>
+                                        <td>Golden Retriever</td>
+                                        <td>4</td>
+                                        <td>Available</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Milo</th>
+                                        <td>Border Collie</td>
+                                        <td>2</td>
+                                        <td>Fostered</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Piper</th>
+                                        <td>Labrador</td>
+                                        <td>7</td>
+                                        <td>Available</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Zoe</th>
+                                        <td>Beagle</td>
+                                        <td>5</td>
+                                        <td>Adopted</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Live region announces sort changes -->
+                        <p class="visually-hidden" aria-live="polite" id="table-status"></p>
+                    </div>
+
+                    <h4>Accessibility Features</h4>
+                    <ul>
+                        <li><code>&lt;caption&gt;</code> provides a clear title; column headers use
+                            <code>scope="col"</code>, first cell in each row uses <code>scope="row"</code>.</li>
+                        <li>Sortable columns use real <code>&lt;button&gt;</code> elements; sort state is exposed on the
+                            <code>&lt;th&gt;</code> via <code>aria-sort</code>.</li>
+                        <li>Visible focus rings come from your global <code>:focus-visible</code> styles; headers remain
+                            keyboard operable.</li>
+                        <li>Overflow handling keeps the table usable on small screens without changing semantics.</li>
+                    </ul>
+
+                    <h4>How to test</h4>
+                    <ul>
+                        <li>Tab to a column header → focus ring is visible; press Enter/Space to sort.</li>
+                        <li>Screen reader announces “ascending/descending” when sorting.</li>
+                        <li>On small screens, horizontally scroll the table container; headers remain readable.</li>
+                    </ul>
+                </div>
 
             </section>
         </div>

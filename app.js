@@ -133,3 +133,86 @@ function trapFocus(e) {
 
 openModalBtn.addEventListener("click", openModal);
 closeModalBtn.addEventListener("click", closeModal);
+
+// Table Component 
+// Accessible sortable table
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".a11y-table").forEach(initA11yTable);
+});
+
+function initA11yTable(table) {
+  const ths = Array.from(table.querySelectorAll("thead th"));
+  const sortButtons = ths.map(th => th.querySelector(".sort")).filter(Boolean);
+  const tbody = table.querySelector("tbody");
+  const status = document.getElementById("table-status");
+
+  // Preserve original order for stable sorting
+  Array.from(tbody.rows).forEach((tr, i) => (tr.dataset.origIndex = i));
+
+  sortButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const col = parseInt(btn.dataset.col, 10);
+      const type = btn.dataset.type || inferColType(tbody, col);
+      toggleSort(ths, col);                 // updates aria-sort on THs
+      const dir = getSortDirection(ths[col]); // "ascending" or "descending"
+      sortRows(tbody, col, dir, type);
+      if (status) status.textContent = `Sorted by ${btn.textContent.trim()}, ${dir}.`;
+    });
+
+    // activate with Enter/Space also works since it's a <button>
+  });
+}
+
+function inferColType(tbody, col) {
+  // Look at first non-empty cell; if numeric, sort as number
+  for (const row of tbody.rows) {
+    const text = getCellText(row, col);
+    if (text && !isNaN(parseFloat(text))) return "number";
+  }
+  return "text";
+}
+
+function toggleSort(ths, colIndex) {
+  ths.forEach((th, i) => {
+    if (i === colIndex) {
+      const current = th.getAttribute("aria-sort") || "none";
+      const next = current === "ascending" ? "descending" : "ascending";
+      th.setAttribute("aria-sort", next);
+    } else {
+      th.setAttribute("aria-sort", "none");
+    }
+  });
+}
+
+function getSortDirection(th) {
+  return th.getAttribute("aria-sort") === "descending" ? "descending" : "ascending";
+}
+
+function sortRows(tbody, col, dir, type) {
+  const rows = Array.from(tbody.rows);
+
+  const comparator = (a, b) => {
+    const av = getCellText(a, col);
+    const bv = getCellText(b, col);
+    if (type === "number") {
+      const an = parseFloat(av) || 0;
+      const bn = parseFloat(bv) || 0;
+      return an - bn || a.dataset.origIndex - b.dataset.origIndex;
+    }
+    // text compare (case-insensitive)
+    const res = av.localeCompare(bv, undefined, { sensitivity: "base" });
+    return res || a.dataset.origIndex - b.dataset.origIndex;
+  };
+
+  rows.sort(comparator);
+  if (dir === "descending") rows.reverse();
+
+  // Re-append in sorted order
+  rows.forEach(row => tbody.appendChild(row));
+}
+
+function getCellText(row, col) {
+  // col 0 is a row header (<th scope="row">) in this table
+  const cell = row.cells[col] || row.querySelectorAll("th[scope='row']")[0];
+  return (cell ? cell.textContent : "").trim();
+}

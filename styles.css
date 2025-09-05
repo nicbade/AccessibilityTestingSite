@@ -5,8 +5,14 @@ body {
 
 h4,
 li,
-p {
+p, 
+th,
+td {
     color: #000;
+}
+
+#whiteText {
+  color: #fff;
 }
 
 kbd {
@@ -386,11 +392,6 @@ code {
   text-decoration: underline;
 }
 
-/* Keep the Close button using your Button Pattern */
-.modal .custom-button {
-  /* already good: #0645AD on white, and ≥3:1 vs dark bg */
-}
-
 /* Utility: visually hide content but keep it for screen readers */
 .visually-hidden {
   position: absolute !important;
@@ -425,4 +426,77 @@ code {
   vertical-align: text-top;
 }
 
+/* Table  */
+/* Table container – enables horizontal scroll on small screens */
+.table-container {
+  overflow-x: auto;
+}
 
+/* Base table */
+.a11y-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  color: #111;
+  font-size: 1rem;
+}
+
+/* Caption: align with site styling */
+.a11y-table caption {
+  text-align: left;
+  padding: 0.5rem 0.25rem;
+  color: #0645AD;            /* matches site blue */
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+/* Headers */
+.a11y-table thead th {
+  background: #eef6ff;        /* light blue header background */
+  color: #000;
+  border: 2px solid #e0e6ed;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+/* Sort buttons (look like links; keep strong focus via global ring) */
+.a11y-table thead th .sort {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: #0645AD;
+  text-decoration: underline;
+  font: inherit;
+  cursor: pointer;
+}
+.a11y-table thead th .sort:hover,
+.a11y-table thead th .sort:focus {
+  color: #032d73;
+  text-decoration: underline;
+}
+
+/* Body cells */
+.a11y-table td,
+.a11y-table th[scope="row"] {
+  border: 1px solid #e0e6ed;
+  padding: 0.5rem 0.75rem;
+  vertical-align: top;
+}
+
+/* Zebra striping for rows (high-contrast) */
+.a11y-table tbody tr:nth-child(even) {
+  background: #f9fbfd;
+}
+
+/* Selected header visual (optional cue when sorted) */
+.a11y-table thead th[aria-sort="ascending"],
+.a11y-table thead th[aria-sort="descending"] {
+  background: #e6f0ff;
+  border-color: #1a73e8;
+}
+
+tbody {
+  color: #000;
+}
+/* Keep focus visible on header buttons via your existing :focus-visible rules */
